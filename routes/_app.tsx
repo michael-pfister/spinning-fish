@@ -36,13 +36,13 @@ export default function App({ Component }: PageProps) {
           <aside>
             <span>MIT licensed with ❤️ by Michael</span>
             <span>
-              3D Art by{" "}
+              3D Art{" "}
               <a
                 class="underline"
-                href="https://sketchfab.com/Hawsky"
+                href="https://sketchfab.com/YuVX"
                 target="_blank"
               >
-                by Hawsky
+                by YuVX
               </a>
             </span>
           </aside>
