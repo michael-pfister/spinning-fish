@@ -39,10 +39,10 @@ export default function App({ Component }: PageProps) {
               3D Art by{" "}
               <a
                 class="underline"
-                href="https://sketchfab.com/KJLOYH"
+                href="https://sketchfab.com/Hawsky"
                 target="_blank"
               >
-                Valery Kharitonov
+                by Hawsky
               </a>
             </span>
           </aside>

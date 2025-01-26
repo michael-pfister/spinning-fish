@@ -1,4 +1,5 @@
 import { Component } from "preact";
+// @deno-types="npm:@types/three@0.172.0"
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -26,6 +27,8 @@ class SpinningModel extends Component {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.autoRotate = true;
+    controls.autoRotateSpeed = 15.0;
+    controls.enableZoom = false;
 
     renderer.setSize(dimensions.x, dimensions.y);
     document.getElementById("model-container")?.appendChild(
@@ -36,14 +39,14 @@ class SpinningModel extends Component {
     let model: THREE.Object3D | undefined;
 
     loader.load(
-      "../scene.gltf", // replace with the path to your model
-      function (gltf: THREE.GLTF & { scene: THREE.Scene }) {
+      "../model.gltf", // replace with the path to your model
+      function (gltf: GLTFLoader.gltf & { scene: THREE.Scene }) {
         model = gltf.scene;
         scene.add(gltf.scene);
 
         // rotate to align the model
-        gltf.scene.rotation.y = -1.5;
-        gltf.scene.rotation.x = 0.25;
+        // gltf.scene.rotation.y = -0.5;
+        // gltf.scene.rotation.x = 0.25;
 
         // put the model in the middle of the scene
         const box = new THREE.Box3().setFromObject(gltf.scene);
@@ -52,7 +55,7 @@ class SpinningModel extends Component {
         gltf.scene.position.sub(center);
 
         // scale the model to fit the scene
-        const scale = 1.3;
+        const scale = 1.2;
         gltf.scene.scale.set(scale, scale, scale);
 
         const animate = function () {
@@ -73,13 +76,13 @@ class SpinningModel extends Component {
     const light = new THREE.AmbientLight(0x404040, 75); // soft white light
     scene.add(light);
 
-    camera.position.z = 0.65;
+    camera.position.z = 1.00;
     controls.update();
   }
 
   render() {
     return (
-      <div class="relative w-[400px] h-5">
+      <div class="relative w-[400px] h-[400px]">
         <div
           id="loading-overlay"
           class="absolute w-full h-full bg-[rgba(0,0,0,0.3)] animate-pulse rounded-lg flex justify-center items-center"
