@@ -79,7 +79,7 @@ class SpinningModel extends Component {
 
   render() {
     return (
-      <div class="relative w-[400px] aspect-square">
+      <div class="relative w-[400px] h-5">
         <div
           id="loading-overlay"
           class="absolute w-full h-full bg-[rgba(0,0,0,0.3)] animate-pulse rounded-lg flex justify-center items-center"

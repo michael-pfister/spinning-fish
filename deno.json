@@ -31,7 +31,8 @@
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "$std/": "https://deno.land/std@0.216.0/",
     "three": "npm:three@0.172.0",
-    "daisyui": "npm:daisyui@4.12.23"
+    "daisyui": "npm:daisyui@4.12.23",
+    "react-icons/fa": "https://deno.land/x/react_icons@0.0.10/fa/index.ts"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
